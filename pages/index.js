@@ -11,7 +11,7 @@ export default function Home() {
     async function fetchData() {
       const response = await fetch('https://www.reddit.com/r/popular.json');
       const json = await response.json();
-      const result = json.data.children.map((post) => post.data.title)
+      const result = json.data.children.map((post) => post.data)
       console.log(result)
       return result
     }
