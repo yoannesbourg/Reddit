@@ -18,6 +18,9 @@ export default function Home() {
     fetchData().then(result => setData(result));
   }, []); 
 
+  const showData = () => {
+    return data.map(item => <Post title={item.title} author={item.author}/>)
+  }
   return (
     <div className="min-h-screen bg-gray-50">
       <Head>
@@ -31,8 +34,9 @@ export default function Home() {
         <div className="flex mx-auto -my-0 w-11/12"> {/* Main content*/}
 
           <div className=" flex w-8/12 flex-col  mr-4"> {/*Left Column*/}
+          
             
-          {data.map(item => <Post title={item.title} author={item.author}/>)}
+          {data? showData() : <p className="text-center mt-4">Loading...</p>}
 
           </div>
 
