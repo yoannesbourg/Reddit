@@ -3,6 +3,7 @@ import Searchbar from '../components/Searchbar'
 import Post from '../components/Post'
 import Categories from '../components/Categories'
 import { useEffect, useState } from 'react'
+import { Counter } from '../redux/features/counter/counter'
 
 export default function Home() {
   const [data, setData] = useState()
@@ -34,6 +35,7 @@ export default function Home() {
         <div className="flex mx-auto -my-0 w-11/12"> {/* Main content*/}
 
           <div className=" flex w-8/12 flex-col  mr-4"> {/*Left Column*/}
+          <Counter />
           
             
           {data? showData() : <p className="text-center mt-4">Loading...</p>}
