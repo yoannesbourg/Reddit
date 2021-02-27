@@ -32,9 +32,9 @@ export default function Home() {
       <main className="text-gray-500">
         <Searchbar /> {/* Search top bar */}
 
-        <div className="flex mx-auto -my-0 w-11/12"> {/* Main content*/}
+        <div className="sm:flex mx-auto -my-0 w-11/12"> {/* Main content*/}
 
-          <div className=" flex w-8/12 flex-col  mr-4"> {/*Left Column*/}
+          <div className="flex sm:w-8/12 flex-col  mr-4 w-full"> {/*Left Column*/}
           <Counter />
           
             
@@ -42,7 +42,7 @@ export default function Home() {
 
           </div>
 
-          <div className=" flex justify-center w-4/12"> {/*Right Column*/}
+          <div className=" flex justify-center sm:w-4/12 w-full"> {/*Right Column*/}
             <Categories />
           </div>
 
