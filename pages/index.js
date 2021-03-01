@@ -4,7 +4,7 @@ import Post from '../components/Post'
 import Categories from '../components/Categories'
 import { useEffect, useState } from 'react'
 import { Counter } from '../redux/features/counter/counter'
-import Posts from '../redux/features/posts/Posts'
+import PostsComponent from '../redux/features/posts/Posts'
 
 export default function Home() {
   const [data, setData] = useState()
@@ -38,7 +38,7 @@ export default function Home() {
           <div className="flex sm:w-8/12 flex-col  mr-4 w-full"> {/*Left Column*/}
 
           <Counter />
-          <Posts />
+          <PostsComponent />
             
           {data? showData() : <p className="text-center mt-4">Loading...</p>}
 

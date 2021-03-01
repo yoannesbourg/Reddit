@@ -1,21 +1,25 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getPosts } from './postsSlice'
+import Posts from './postsSlice'
+import { unwrapResult } from '@reduxjs/toolkit'
 
-const Posts = () => {
+const PostsComponent = () => {
+    const  Posts  = useSelector(state => state.posts)
+    console.log({Posts})
     const dispatch = useDispatch()
 
-    useEffect(() => {
-        dispatch(getPosts())
+    const callUseEffect = useEffect(() => {
+        const resultAction = dispatch(getPosts())
+        console.log(resultAction)
     }, [dispatch])
 
-    // const post = useSelector(state => state.post.list)
 
     return (
         <div>
-            <h1>posts ...</h1>
+            <h1>{Posts.list[0].author}</h1>
         </div>
     )
 }
 
-export default Posts
+export default PostsComponent
