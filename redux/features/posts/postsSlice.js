@@ -1,9 +1,11 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk, unwrapResult } from '@reduxjs/toolkit'
 
 export const getPosts = createAsyncThunk(
     'posts/getPosts',
     async () => {
-        return fetch('https://www.reddit.com/r/popular.json').then(response => response.json())
+        return fetch('https://www.reddit.com/r/popular.json')
+        .then(response => response.json())
+        .then(json => json.data.children.map((post) => post.data))
     }
 )
 

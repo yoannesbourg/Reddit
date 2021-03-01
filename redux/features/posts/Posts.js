@@ -9,7 +9,7 @@ const Posts = () => {
         dispatch(getPosts())
     }, [dispatch])
 
-    
+    // const post = useSelector(state => state.post.list)
 
     return (
         <div>
