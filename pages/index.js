@@ -4,24 +4,25 @@ import Post from '../components/Post'
 import Categories from '../components/Categories'
 import { useEffect, useState } from 'react'
 import { Counter } from '../redux/features/counter/counter'
+import Posts from '../redux/features/posts/Posts'
 
 export default function Home() {
   const [data, setData] = useState()
 
-  useEffect(() => {
-    async function fetchData() {
-      const response = await fetch('https://www.reddit.com/r/popular.json');
-      const json = await response.json();
-      const result = json.data.children.map((post) => post.data)
-      console.log(result)
-      return result
-    }
-    fetchData().then(result => setData(result));
-  }, []); 
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const response = await fetch('https://www.reddit.com/r/popular.json');
+  //     const json = await response.json();
+  //     const result = json.data.children.map((post) => post.data)
+  //     console.log(result)
+  //     return result
+  //   }
+  //   fetchData().then(result => setData(result));
+  // }, []); 
 
-  const showData = () => {
-    return data.map(item => <Post title={item.title} author={item.author}/>)
-  }
+  // const showData = () => {
+  //   return data.map(item => <Post title={item.title} author={item.author}/>)
+  // }
   return (
     <div className="min-h-screen bg-gray-50">
       <Head>
@@ -35,8 +36,9 @@ export default function Home() {
         <div className="sm:flex mx-auto -my-0 w-11/12"> {/* Main content*/}
 
           <div className="flex sm:w-8/12 flex-col  mr-4 w-full"> {/*Left Column*/}
+
           <Counter />
-          
+          <Posts />
             
           {data? showData() : <p className="text-center mt-4">Loading...</p>}
 
