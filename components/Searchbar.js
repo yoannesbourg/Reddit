@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { searchPosts } from '../redux/features/posts/postsSlice'
 
 const Searchbar = () => {
     const [text, setText] = useState('')
@@ -7,15 +8,17 @@ const Searchbar = () => {
 
     const handleInput = (event) => {
         setText(event.target.value)
-        console.log(text)
     }
 
-    const search = () => {
-        // if (text) {
-        //   dispatch('https://www.reddit.com/search.json?q=cake%20recipes')
-        // }
-        // setText('')
-        console.log('it works')
+    const search = (event) => {
+        
+        
+        if(event.keyCode === 13) {
+            if (text) {
+                dispatch(searchPosts(`https://www.reddit.com/search.json?q=${text}`))
+                setText('')
+            }
+        } 
     }
 
     return (      
@@ -29,7 +32,7 @@ const Searchbar = () => {
                 placeholder="Search"
                 onChange={handleInput}
                 value={text}
-                onKeyDown={() => {  if(event.keyCode === 13) { search} }}
+                onKeyDown={search}
             />
         </div>
     )

@@ -1,7 +1,18 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
+
+
 export const getPosts = createAsyncThunk(
     'posts/getPosts',
+    async (link) => {
+        return fetch(link)
+        .then(response => response.json())
+        .then(json => json.data.children.map((post) => post.data))
+    }
+)
+
+export const searchPosts = createAsyncThunk(
+    'posts/searchPosts',
     async (link) => {
         return fetch(link)
         .then(response => response.json())
@@ -24,6 +35,16 @@ export const postsSlice = createSlice({
             state.status = 'success'
         },
         [getPosts.rejected]: (state) => {
+            state.status = 'failed'
+        },
+        [searchPosts.pending]: (state) => {
+            state.status = 'loading'
+        },
+        [searchPosts.fulfilled]: (state, {payload}) => {
+            state.list = payload
+            state.status = 'success'
+        },
+        [searchPosts.rejected]: (state) => {
             state.status = 'failed'
         }
     }
