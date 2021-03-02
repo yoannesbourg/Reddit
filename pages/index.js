@@ -5,9 +5,12 @@ import Categories from '../components/Categories'
 import { useEffect, useState } from 'react'
 import { Counter } from '../redux/features/counter/counter'
 import PostsComponent from '../redux/features/posts/Posts'
+import { useSelector } from 'react-redux'
 
 export default function Home() {
-  const [data, setData] = useState()
+  // const [data, setData] = useState()
+
+  const  data  = useSelector(state => state.posts)
 
   // useEffect(() => {
   //   async function fetchData() {
@@ -20,9 +23,10 @@ export default function Home() {
   //   fetchData().then(result => setData(result));
   // }, []); 
 
-  // const showData = () => {
-  //   return data.map(item => <Post title={item.title} author={item.author}/>)
-  // }
+  const showData = () => {
+    return data.map(item => <Post title={item.title} author={item.author}/>)
+  }
+  
   return (
     <div className="min-h-screen bg-gray-50">
       <Head>
@@ -37,11 +41,12 @@ export default function Home() {
 
           <div className="flex sm:w-8/12 flex-col  mr-4 w-full"> {/*Left Column*/}
 
-          <Counter />
-          <PostsComponent />
+          {/* <Counter /> */}
             
-          {data? showData() : <p className="text-center mt-4">Loading...</p>}
+          {/* {data ? showData() : <p className="text-center mt-4">Loading...</p>} */}
+          <PostsComponent />
 
+          
           </div>
 
           <div className=" flex justify-center sm:w-4/12 w-full"> {/*Right Column*/}
