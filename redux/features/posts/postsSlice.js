@@ -27,6 +27,7 @@ export const postsSlice = createSlice({
         status: null,
     },
     extraReducers: {
+        //Popular
         [getPosts.pending]: (state) => {
             state.status = 'loading'
         },
@@ -37,6 +38,8 @@ export const postsSlice = createSlice({
         [getPosts.rejected]: (state) => {
             state.status = 'failed'
         },
+
+        //Search
         [searchPosts.pending]: (state) => {
             state.status = 'loading'
         },
@@ -49,5 +52,6 @@ export const postsSlice = createSlice({
         }
     }
 })
+
 
 export default postsSlice.reducer
