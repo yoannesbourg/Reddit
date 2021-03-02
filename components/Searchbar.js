@@ -23,8 +23,13 @@ const Searchbar = () => {
 
     return (      
 
-        <div className="bg-white flex justify-center p-3 shadow">
-            {/* <input placeholder="Search a post" className="bg-gray-50 p-2 w-72 px-5 rrounded-lg"/> */}
+        <div className="bg-white  p-3 shadow ">
+            <div className="flex justify-between items-center w-11/12 mx-auto">
+            <img 
+                src="/Reddit_Lockup_OnWhite.png" 
+                className="w-24 cursor-pointer"
+                
+            />
             <input 
                 className="border-2 border-gray-300 bg-white h-10 px-5 pr16 rounded-lg text-sm focus:outline-none"
                 type="search" 
@@ -34,6 +39,8 @@ const Searchbar = () => {
                 value={text}
                 onKeyDown={search}
             />
+            <div></div>
+            </div>
         </div>
     )
 }

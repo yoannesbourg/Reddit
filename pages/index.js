@@ -9,7 +9,7 @@ export default function Home() {
     <div className="min-h-screen bg-gray-50">
       <Head>
         <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/Reddit_Mark_OnWhite.png" />
       </Head>
 
       <main className="text-gray-500">
@@ -32,7 +32,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           Powered by Yoann{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="h-4 ml-2" />
+          <img src="/Reddit_Lockup_OnWhite.png" alt="Logo" className="h-4 ml-2" />
         </a>
       </footer>
     </div>
