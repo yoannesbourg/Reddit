@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { searchPosts } from '../redux/features/posts/postsSlice'
+import { searchPosts, getPosts } from '../redux/features/posts/postsSlice'
 
 const Searchbar = () => {
     const [text, setText] = useState('')
@@ -21,6 +21,10 @@ const Searchbar = () => {
         } 
     }
 
+    const handleClickHome = () =>  {
+        dispatch(getPosts('https://www.reddit.com/r/popular.json'))
+    }
+
     return (      
 
         <div className="bg-white  p-3 shadow ">
@@ -28,7 +32,7 @@ const Searchbar = () => {
             <img 
                 src="/Reddit_Lockup_OnWhite.png" 
                 className="w-24 cursor-pointer"
-                
+                onClick={handleClickHome}
             />
             <input 
                 className="border-2 border-gray-300 bg-white h-10 px-5 pr16 rounded-lg text-sm focus:outline-none"
