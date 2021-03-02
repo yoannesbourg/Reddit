@@ -8,7 +8,7 @@ const PostsFeed = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(getPosts())
+        dispatch(getPosts('https://www.reddit.com/r/pokemon.json'))
     }, [dispatch])
     
     return (

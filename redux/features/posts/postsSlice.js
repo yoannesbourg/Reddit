@@ -2,8 +2,8 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 export const getPosts = createAsyncThunk(
     'posts/getPosts',
-    async () => {
-        return fetch('https://www.reddit.com/r/popular.json')
+    async (link) => {
+        return fetch(link)
         .then(response => response.json())
         .then(json => json.data.children.map((post) => post.data))
     }
