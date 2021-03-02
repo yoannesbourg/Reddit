@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, unwrapResult } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 export const getPosts = createAsyncThunk(
     'posts/getPosts',
@@ -23,7 +23,7 @@ export const postsSlice = createSlice({
             state.list = payload
             state.status = 'success'
         },
-        [getPosts.rejected]: (state, action) => {
+        [getPosts.rejected]: (state) => {
             state.status = 'failed'
         }
     }
