@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Head>
-        <title>Create Next App</title>
+        <title>Reddit Clone</title>
         <link rel="icon" href="/Reddit_Mark_OnWhite.png" />
       </Head>
 

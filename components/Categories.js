@@ -8,7 +8,6 @@ const Categories = () => {
     
     useEffect(() => {
         dispatch(getCommunities('https://www.reddit.com/subreddits.json'))
-        console.log(communities)
     }, [dispatch])
     
     return (
