@@ -4,16 +4,17 @@ import { getPosts } from './postsSlice'
 import Post from '../../../components/Post'
 
 const PostsFeed = () => {
-    const  Posts  = useSelector(state => state.posts)
+    const  posts  = useSelector(state => state.posts)
     const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(getPosts('https://www.reddit.com/r/popular.json'))
     }, [dispatch])
+    console.log(posts)
     
     return (
         <div>
-            <h1>{Posts.list.map(item => <Post title={item.title} author={item.author}/>)}</h1>
+            {posts.list.map(item => <Post title={item.title} author={item.author} id={item.id}/>)}
         </div>
     )
 }
