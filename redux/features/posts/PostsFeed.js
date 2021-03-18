@@ -14,7 +14,7 @@ const PostsFeed = () => {
     
     return (
         <div>
-            {posts.list.map(item => <Post title={item.title} author={item.author} id={item.id}/>)}
+            {posts.list.map(item => <Post title={item.title} author={item.author} id={item.id} date={item.created_utc}/>)}
         </div>
     )
 }
