@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
 
-const PostPage = (selectedPost) => {
+export const PostPage = (selectedPost) => {
     // console.log(selectedPost)
     return(
         <div>
