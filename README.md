@@ -1,2 +1,2 @@
-# Next.js + Tailwind + Redux
+Next.js + Tailwind + Redux
 
